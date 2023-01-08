@@ -14,16 +14,18 @@ const ProductDetails = () => {
   const product = products.find((item) => {
     return item.id === parseInt(id);
   });
+
+  
   if (!product) {
     return (
-      <section className="h-screen flex justify-center items-center">
+      <div className="h-screen flex justify-center items-center">
         Loading.....
-      </section>
+      </div>
     );
   }
   const { title, price, description, image } = product;
   return (
-    <section className="pt-32 pb-12 lg:py-32 h-screen flex items-center">
+    <div className="pt-32 pb-12 lg:py-32 h-full flex items-center">
       <div className="container mx-auto">
         <div className="flex flex-col lg:flex-row items-center">
           <div className="flex flex-1 justify-center items-center mb-8 lg:mb-0 bg-purple-200">
@@ -38,10 +40,15 @@ const ProductDetails = () => {
             </h1>
           </div>
           <p className="mb-8">{description}</p>
-          <button onClick={()=>addToCart(product ,product.id)} className="bg-primary py-4 px-8 text-white">Add to cart </button>
+          <button
+            onClick={() => addToCart(product, product.id)}
+            className="bg-black py-4 px-8 text-white"
+          >
+            Add to cart
+          </button>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

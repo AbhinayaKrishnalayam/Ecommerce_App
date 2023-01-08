@@ -28,7 +28,7 @@ const Products = (props) => {
             </div>
           </button>
           <Link
-            to={`Products/${id}`}
+            to={`product/${id}`}
             className="w-12 h-12 bg-white flex justify-center items-center"
           >
             <BsEyeFill />
@@ -37,7 +37,7 @@ const Products = (props) => {
       </div>
       <div>
         <div className="text-sm capitalize text-gary-500">{category}</div>
-        <Link to={`Products/${id}`}>
+        <Link to={`product/${id}`}>
           <h2 className="font-semibold mb-1">{title}</h2>
         </Link>
         <div className="font-semibold">${price}</div>

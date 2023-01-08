@@ -9,16 +9,16 @@ import { Link } from "react-router-dom";
 const Header = () => {
   const [isActive, setIsActive] = useState(false);
   const { isOpen, setIsOpen } = useContext(SidebarContext);
-  const { itemAmount } = useContext(CartContexts);
+  const cartCtxt = useContext(CartContexts);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
       window.scrollY > 60 ? setIsActive(true) : setIsActive(false);
     });
   }, []);
-  
+
   return (
-    <header
+    <div
       className={`${
         isActive ? "bg-white py-4 shadow-md" : "bg-none py-6"
       } fixed w-full z-10 transition-all `}
@@ -32,10 +32,10 @@ const Header = () => {
       >
         <BsBag className="text-2xl " />
         <div className="bg-red-500 text-[12px] w-[18px] text-white rounded-full flex justify-center items-center absolute -bottom-1 left-6 ">
-          {itemAmount}
+          {cartCtxt.itemAmount}
         </div>
       </div>
-    </header>
+    </div>
   );
 };
 

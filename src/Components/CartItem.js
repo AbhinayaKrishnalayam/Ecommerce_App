@@ -21,12 +21,6 @@ const CartItem = (props) => {
             >
               {title}
             </Link>
-            <div
-              onClick={() => ctxt.removeFromCart(id)}
-              className="text-xl cursor-pointer"
-            >
-              <IoMdClose className="text-gray-500 hover:text-red-500 transition" />
-            </div>
             <div className="flex gap-x-3 h-[20px] text-sm">
               <div className="flex flex-1 max-w-[50px] items-center h-full border text-primary font-medium">
                 <div
@@ -45,12 +39,18 @@ const CartItem = (props) => {
                   <IoMdAdd />
                 </div>
               </div>
-              <div className="flex-1 flex items-center justify-around ">
+              <div className="flex-1 flex items-center justify-around w-16 ">
                 $ {price}
               </div>
-              <div className="flex-1 flex justify-end items-center text-primary font-medium">{`$ ${parseFloat(
+              <div className="flex-1 flex justify-end items-center text-primary font-medium w-10">{`$ ${parseFloat(
                 price * amount
               ).toFixed(2)}`}</div>
+              <div
+                onClick={() => ctxt.removeFromCart(id)}
+                className="text-xl cursor-pointer"
+              >
+                <IoMdClose className="text-gray-500 hover:text-red-500 transition" />
+              </div>
             </div>
           </div>
         </div>
